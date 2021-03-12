@@ -1,5 +1,5 @@
-import Location from "./Location.svelte";
+import Position from "./Position.svelte";
 
 export {
-    Location
+    Position
 };

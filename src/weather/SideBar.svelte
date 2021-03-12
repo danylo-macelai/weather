@@ -1,9 +1,14 @@
 <script>
-    import { Location } from "../components";
+    import { Position } from "../components";
 </script>
 
 <aside>
-    <Location />
+    <div class="sidebar__buttons">
+        <button class="seach">
+            <span> Seach for places </span>
+        </button>
+        <Position />
+    </div>
 </aside>
 
 <style>
@@ -28,10 +33,19 @@
         opacity: 0.2;
     }
 
+    .seach {
+        width: 161px;
+        height: 40px;
+    }
+
     @media screen and (max-width: 1024px) {
         aside {
             height: 810px;
             width: 100%;
+        }
+
+        .sidebar__buttons {
+            margin: 18px 11px;
         }
 
         aside::after {

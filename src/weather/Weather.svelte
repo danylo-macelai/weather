@@ -1,13 +1,20 @@
 <script>
 	import { SideBar } from "./";
+ 	import { state } from "../store";
+
+	const { loading } = state;
 </script>
 
 <main class="home__content">
-	<SideBar />
-	<article>
-		// Content Heading
-		<section>// Content Area</section>
-	</article>
+	{#if $loading}
+		// loading...
+	{:else}
+		<SideBar />
+		<article>
+			// Content Heading
+			<section>// Content Area</section>
+		</article>
+	{/if}
 </main>
 
 <style>

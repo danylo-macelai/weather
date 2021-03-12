@@ -1,8 +1,9 @@
 <script>
+	import { SideBar } from "./";
 </script>
 
 <main class="home__content">
-	<aside>//Side Bar</aside>
+	<SideBar />
 	<article>
 		// Content Heading
 		<section>// Content Area</section>
@@ -20,12 +21,6 @@
 		height: 100vh;
 	}
 
-	aside {
-		width: 459px;
-		float: left;
-		background-color: #1e213a;
-	}
-
 	article {
 		width: 981px;
 		float: left;
@@ -35,11 +30,6 @@
 	@media screen and (max-width: 1024px) {
 		.home__content {
 			flex-direction: column;
-		}
-
-		aside {
-			height: 810px;
-			width: 100%;
 		}
 
 		article {

@@ -1,8 +1,9 @@
 <script>
- </script>
+    import { Location } from "../components";
+</script>
 
 <aside>
-    //Side Bar
+    <Location />
 </aside>
 
 <style>

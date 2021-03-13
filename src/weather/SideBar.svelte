@@ -16,6 +16,7 @@
     </div>
     <State image={weather.weatherStateAbbr} />
     <Temperature temperature={weather.theTemp} />
+    <p class="state-name">{weather.weatherStateName}</p>
 </aside>
 
 <style>
@@ -43,6 +44,18 @@
     .seach {
         width: 161px;
         height: 40px;
+    }
+    
+    .state-name {
+        position: absolute;
+        top: 668px;
+        font-family: Raleway;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 36px;
+        line-height: 42px;
+        text-align: center;
+        color: #a09fb1;
     }
 
     @media screen and (max-width: 1024px) {

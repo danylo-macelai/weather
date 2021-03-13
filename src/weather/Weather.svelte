@@ -1,15 +1,19 @@
 <script>
+	import { onMount } from "svelte";
+
 	import { SideBar } from "./";
- 	import { state } from "../store";
+	import { state, displayWeathersInfo } from "../store";
 
 	const { loading } = state;
+
+	onMount(async () => await displayWeathersInfo(455819));
 </script>
 
 <main class="home__content">
 	{#if $loading}
 		// loading...
 	{:else}
-		<SideBar />
+ 		<SideBar />
 		<article>
 			// Content Heading
 			<section>// Content Area</section>

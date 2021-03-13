@@ -1,5 +1,10 @@
 <script>
-    import { Position } from "../components";
+    import { Position, State } from "../components";
+    import { state } from "../store";
+
+    const { weathers } = state;
+
+    $: weather = $weathers[0];
 </script>
 
 <aside>
@@ -9,6 +14,7 @@
         </button>
         <Position />
     </div>
+    <State image={weather.weatherStateAbbr} />
 </aside>
 
 <style>
@@ -44,14 +50,14 @@
             width: 100%;
         }
 
-        .sidebar__buttons {
-            margin: 18px 11px;
-        }
-
         aside::after {
             top: 58px;
             background-size: cover;
             height: 308px;
+        }
+
+        .sidebar__buttons {
+            margin: 18px 11px;
         }
     }
 </style>

@@ -6,6 +6,7 @@ const state = {
         latitude: 36.96,
         longitude: -122.02,
     }),
+    weathers: writable([{},{},{},{},{},{},]),
 };
 
 const getLoading = value => {
@@ -16,4 +17,8 @@ const getPosition = position => {
     state.position.update(old => position);
 };
 
-export { state, getLoading, getPosition };
+const getWeathers = weathers => {
+    state.weathers.update(old => weathers);
+};
+
+export { state, getLoading, getPosition, getWeathers };

@@ -1,5 +1,5 @@
 <script>
-    import { Position, State } from "../components";
+    import { Position, State, Temperature } from "../components";
     import { state } from "../store";
 
     const { weathers } = state;
@@ -15,6 +15,7 @@
         <Position />
     </div>
     <State image={weather.weatherStateAbbr} />
+    <Temperature temperature={weather.theTemp} />
 </aside>
 
 <style>

@@ -1,5 +1,12 @@
 <script>
-    import { Position, State, Temperature } from "../components";
+    import moment from "moment";
+    import {
+        Buttons,
+        StateImage,
+        Temperature,
+        Date,
+        StateName,
+    } from "../components";
     import { state } from "../store";
 
     const { weathers } = state;
@@ -8,15 +15,11 @@
 </script>
 
 <aside>
-    <div class="sidebar__buttons">
-        <button class="seach">
-            <span> Seach for places </span>
-        </button>
-        <Position />
-    </div>
-    <State image={weather.weatherStateAbbr} />
+    <Buttons />
+    <StateImage image={weather.weatherStateAbbr} />
     <Temperature temperature={weather.theTemp} />
-    <p class="state-name">{weather.weatherStateName}</p>
+    <StateName name={weather.weatherStateName} />
+    <Date text="Today" date={weather.applicableDate} />
 </aside>
 
 <style>
@@ -41,23 +44,6 @@
         opacity: 0.2;
     }
 
-    .seach {
-        width: 161px;
-        height: 40px;
-    }
-    
-    .state-name {
-        position: absolute;
-        top: 668px;
-        font-family: Raleway;
-        font-style: normal;
-        font-weight: 600;
-        font-size: 36px;
-        line-height: 42px;
-        text-align: center;
-        color: #a09fb1;
-    }
-
     @media screen and (max-width: 1024px) {
         aside {
             height: 810px;
@@ -68,10 +54,6 @@
             top: 58px;
             background-size: cover;
             height: 308px;
-        }
-
-        .sidebar__buttons {
-            margin: 18px 11px;
         }
     }
 </style>

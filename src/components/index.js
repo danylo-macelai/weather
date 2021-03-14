@@ -1,9 +1,15 @@
+import Buttons from "./Buttons.svelte";
 import Position from "./Position.svelte";
-import State from "./State.svelte";
+import StateImage from "./StateImage.svelte";
 import Temperature from "./Temperature.svelte";
+import Date from "./Date.svelte";
+import StateName from "./StateName.svelte";
 
 export {
+    Buttons,
     Position,
-    State,
+    StateImage,
     Temperature,
+    Date,
+    StateName,
 };

@@ -27,7 +27,8 @@
 <style>
     aside {
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        align-items: center;
         width: 459px;
         position: relative;
         background-color: #1e213a;
@@ -36,7 +37,7 @@
     aside::after {
         content: "";
         position: absolute;
-        top: 103px;
+        top: 104px;
         left: 0;
         bottom: 0;
         right: 0;

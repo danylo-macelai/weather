@@ -18,4 +18,14 @@
         height: 40px;
         border-radius: 50%;
     }
+    
+    .material-icons {
+        font-size: 22px;
+    }
+
+    @media screen and (max-width: 1024px) {
+        .position {
+            margin: 0 11px;
+        }
+    }
 </style>

@@ -15,9 +15,17 @@
         height: 40px;
     }
 
+    .seach span {
+        font-family: "Raleway";
+    }
+
     @media screen and (max-width: 1024px) {
         .buttons {
-            margin: 18px 11px;
+            margin: 18px 0;
+        }
+
+        .buttons button {
+            margin: 0 11px;
         }
     }
 </style>

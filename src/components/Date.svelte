@@ -13,18 +13,18 @@
 
 <style>
     .date {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        position: absolute;
-        top: 785px;
+        font-family: Raleway;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 21px;
+        color: #88869d;
+        margin: 2vmin 0;
     }
-    .date span {
-        padding: 0 8px;
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+
+    @media screen and (max-width: 1024px) {
+        .date {
+            margin: 4vmin 0 2vmin 0;
+        }
     }
 </style>

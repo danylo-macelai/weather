@@ -22,21 +22,21 @@ body {
 	display: flex;
 	justify-content: space-between;
 	width: 100%;
-	margin: 42px 46px;
+	margin: 42px 0;
 }
 
 .buttons button {
 	border: none;
-	background: #6e707a;
-	font-family: Raleway;
+	background: #6E707A;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	margin: 0 46px;
+}
+
+.buttons button span {
 	font-style: normal;
 	font-weight: 500;
 	font-size: 16px;
 	line-height: 19px;
-	color: #e7e7eb;
-	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.buttons button span {
+	color: #E7E7EB;
 	vertical-align: middle;
 }

@@ -1,17 +1,18 @@
 <script>
-    import moment from "moment";
     import {
         Buttons,
         StateImage,
         Temperature,
         Date,
         StateName,
+        Place,
     } from "../components";
     import { state } from "../store";
 
-    const { weathers } = state;
+    const { weathers, places } = state;
 
     $: weather = $weathers[0];
+    $: place = $places[0];
 </script>
 
 <aside>
@@ -20,6 +21,7 @@
     <Temperature temperature={weather.theTemp} />
     <StateName name={weather.weatherStateName} />
     <Date text="Today" date={weather.applicableDate} />
+    <Place {place} />
 </aside>
 
 <style>

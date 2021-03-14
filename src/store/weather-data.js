@@ -1,40 +1,9 @@
 import * as store from "./store"
+import { get, handleError } from "./http-utils"
 import API_URL from './config';
 
-// ---------------------------------------------- Position
-
-const successCallback = (pos) => {
-  store.getLoading(false);
-  store.getPosition({
-    latitude: pos.coords.latitude,
-    longitude: pos.coords.longitude,
-  });
-}
-
-const errorCallback = (error) => {
-  store.getLoading(false);
-}
-
-function displayPositionInfo() {
-  store.getLoading(true);
-  navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
-}
-
-// ---------------------------------------------- Weathers
-
-const get = async (url) => {
-  const response = await fetch(url)
-  const status = response.status
-  if (status >= 200 && status < 300) {
-    return await response.json()
-  }
-  else {
-    throw { status: status, body: await response.json() }
-  }
-}
-
-const doFill = (location) => {
-  let weathers = location.consolidated_weather.map(weather => {
+const doFill = (data) => {
+  let weathers = data.consolidated_weather.map(weather => {
     return {
       weatherStateName: weather.weather_state_name,
       weatherStateAbbr: weather.weather_state_abbr,
@@ -55,19 +24,13 @@ const doFill = (location) => {
   return weathers;
 }
 
-const handleError = error => {
-  console.log(error); S
-}
-
-async function displayWeathersInfo(woeid) {
+async function displayWeathersInfo(place) {
   store.getLoading(true);
-  let weathers = await get(`${API_URL}/location/${woeid}`)
+  const weathers = await get(`${API_URL}/location/${place.woeid}`)
     .then(json => doFill(json))
     .catch(error => handleError(error))
   store.getWeathers(weathers);
   store.getLoading(false);
 }
 
-// ---------------------------------------------- Exports
-
-export { displayPositionInfo, displayWeathersInfo };
+export { displayWeathersInfo };

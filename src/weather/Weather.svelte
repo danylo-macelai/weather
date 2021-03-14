@@ -1,10 +1,10 @@
 <script>
 	import { onMount } from "svelte";
+	import { Preloader } from "../components";
 	import { SideBar } from "./";
 	import {
 		state,
 		displayWeathersInfo,
-		displayPlaceByQuery,
 		displayPlaceByPosition,
 	} from "../store";
 
@@ -18,14 +18,13 @@
 
 <main class="home__content">
 	{#if $loading}
-		// loading...
-	{:else}
-		<SideBar />
-		<article>
-			// Content Heading
-			<section>// Content Area</section>
-		</article>
+		<Preloader />
 	{/if}
+	<SideBar />
+	<article>
+		// Content Heading
+		<section>// Content Area</section>
+	</article>
 </main>
 
 <style>

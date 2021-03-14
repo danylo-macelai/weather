@@ -5,6 +5,7 @@ import Temperature from "./Temperature.svelte";
 import Date from "./Date.svelte";
 import StateName from "./StateName.svelte";
 import Place from "./Place.svelte";
+import Preloader from "./Preloader.svelte";
 
 export {
     Buttons,
@@ -14,4 +15,5 @@ export {
     Date,
     StateName,
     Place,
+    Preloader,
 };

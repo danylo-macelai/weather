@@ -8,10 +8,16 @@
         Place,
     } from "../components";
     import { place, today } from "../store";
+
+    export let sidebar = false;
 </script>
 
-<aside>
-    <Buttons />
+<aside
+    style="--position: {sidebar
+        ? 'inherit'
+        : 'relative'}; --position-after: {sidebar ? 'inherit' : 'absolute'}"
+>
+    <Buttons bind:open={sidebar} />
     <StateImage image={$today.weatherStateAbbr} />
     <Temperature temperature={$today.theTemp} />
     <StateName name={$today.weatherStateName} />
@@ -25,13 +31,13 @@
         flex-direction: column;
         align-items: center;
         width: 459px;
-        position: relative;
+        position: var(--position);
         background-color: #1e213a;
     }
 
     aside::after {
         content: "";
-        position: absolute;
+        position: var(--position-after);
         top: 104px;
         left: 0;
         bottom: 0;

@@ -1,9 +1,10 @@
 <script>
 	import { onMount } from "svelte";
 	import { Preloader } from "../components";
-	import { Today } from "./";
+	import { Today, Sidebar } from "./";
 	import { state, displayPositionInfo } from "../store";
 
+	let open = false;
 	const { loading, position } = state;
 	$: render = $position.latitude !== undefined;
 
@@ -15,7 +16,8 @@
 		<Preloader />
 	{/if}
 	{#if render}
-		<Today />
+		<Sidebar bind:open />
+		<Today bind:sidebar={open} />
 		<article>
 			// Content Heading
 			<section>// Content Area</section>
@@ -26,17 +28,13 @@
 <style>
 	main {
 		display: flex;
-		text-align: center;
-		justify-content: center;
-		max-inline-size: 1440px;
-		margin: auto;
 		line-height: 19px;
 		height: 100vh;
 	}
 
 	article {
-		width: 981px;
 		float: left;
+		flex: 1 1 auto;
 		background-color: #100e1d;
 	}
 

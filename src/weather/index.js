@@ -1,7 +1,7 @@
 import Weather from "./Weather.svelte";
-import SideBar from "./SideBar.svelte";
+import Today from "./Today.svelte";
 
 export {
     Weather,
-    SideBar,
+    Today,
 };

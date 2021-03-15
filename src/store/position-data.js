@@ -1,15 +1,31 @@
-import * as store from "./store"
+import { get } from 'svelte/store';
+import * as store from './store'
+import { displayPlaceByPosition } from './place-data'
 
-const successCallback = (pos) => {
+const doLoadData = async (position) => {
+  await displayPlaceByPosition(position);
+  store.getPosition(position);
   store.getLoading(false);
-  store.getPosition({
-    latitude: pos.coords.latitude,
-    longitude: pos.coords.longitude,
-  });
 }
 
-const errorCallback = (error) => {
-  store.getLoading(false);
+const successCallback = async (pos) => {
+  const position = {
+    latitude: pos.coords.latitude,
+    longitude: pos.coords.longitude,
+  };
+  await doLoadData(position);
+}
+
+const errorCallback = async (error) => {
+  const { position } = store.state;
+  let positionDefault = get(position);
+  if (positionDefault.latitude === undefined) {
+    positionDefault = {
+      latitude: 60.165249,
+      longitude: 24.936056,
+    }
+  }
+  await doLoadData(positionDefault);
 }
 
 function displayPositionInfo() {

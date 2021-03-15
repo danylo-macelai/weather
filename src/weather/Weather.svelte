@@ -1,30 +1,26 @@
 <script>
 	import { onMount } from "svelte";
 	import { Preloader } from "../components";
-	import { SideBar } from "./";
-	import {
-		state,
-		displayWeathersInfo,
-		displayPlaceByPosition,
-	} from "../store";
+	import { Today } from "./";
+	import { state, displayPositionInfo } from "../store";
 
-	const { loading, position, places } = state;
+	const { loading, position } = state;
+	$: render = $position.latitude !== undefined;
 
-	onMount(async () => {
-		await displayPlaceByPosition($position);
-		await displayWeathersInfo($places[0]);
-	});
+	onMount(() => displayPositionInfo());
 </script>
 
 <main class="home__content">
 	{#if $loading}
 		<Preloader />
 	{/if}
-	<SideBar />
-	<article>
-		// Content Heading
-		<section>// Content Area</section>
-	</article>
+	{#if render}
+		<Today />
+		<article>
+			// Content Heading
+			<section>// Content Area</section>
+		</article>
+	{/if}
 </main>
 
 <style>

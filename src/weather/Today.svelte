@@ -7,21 +7,16 @@
         StateName,
         Place,
     } from "../components";
-    import { state } from "../store";
-
-    const { weathers, places } = state;
-
-    $: weather = $weathers[0];
-    $: place = $places[0];
+    import { place, today } from "../store";
 </script>
 
 <aside>
     <Buttons />
-    <StateImage image={weather.weatherStateAbbr} />
-    <Temperature temperature={weather.theTemp} />
-    <StateName name={weather.weatherStateName} />
-    <Date text="Today" date={weather.applicableDate} />
-    <Place {place} />
+    <StateImage image={$today.weatherStateAbbr} />
+    <Temperature temperature={$today.theTemp} />
+    <StateName name={$today.weatherStateName} />
+    <Date text="Today" date={$today.applicableDate} />
+    <Place place={$place} />
 </aside>
 
 <style>

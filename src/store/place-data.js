@@ -1,5 +1,6 @@
 import * as store from "./store"
-import { get, handleError } from "./http-utils"
+import { displayWeathersInfo } from "./weather-data"
+import { httpGet, handleError } from "./http-utils"
 import API_URL from './config';
 
 const doFill = (data) => {
@@ -13,12 +14,11 @@ const doFill = (data) => {
 }
 
 async function fetchPlaces(url) {
-  store.getLoading(true);
-  const places = await get(url)
+  const places = await httpGet(url)
     .then(json => doFill(json))
     .catch(error => handleError(error))
+  await displayWeathersInfo(places[0]);
   store.getPlaces(places);
-  store.getLoading(false);
 }
 
 async function displayPlaceByQuery(query) {

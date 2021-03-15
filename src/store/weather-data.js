@@ -1,5 +1,5 @@
 import * as store from "./store"
-import { get, handleError } from "./http-utils"
+import { httpGet, handleError } from "./http-utils"
 import API_URL from './config';
 
 const doFill = (data) => {
@@ -26,7 +26,7 @@ const doFill = (data) => {
 
 async function displayWeathersInfo(place) {
   store.getLoading(true);
-  const weathers = await get(`${API_URL}/location/${place.woeid}`)
+  const weathers = await httpGet(`${API_URL}/location/${place.woeid}`)
     .then(json => doFill(json))
     .catch(error => handleError(error))
   store.getWeathers(weathers);

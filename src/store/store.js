@@ -1,13 +1,10 @@
-import { writable } from "svelte/store";
+import { writable, derived } from "svelte/store";
 
 const state = {
     loading: writable(false),
-    places: writable([{},]),
-    position: writable({
-        latitude: 36.96,
-        longitude: -122.02,
-    }),
-    weathers: writable([{}, {}, {}, {}, {}, {},]),
+    places: writable([{}]),
+    position: writable({}),
+    weathers: writable([{}]),
 };
 
 const getLoading = value => {
@@ -25,4 +22,12 @@ const getWeathers = weathers => {
     state.weathers.update(old => weathers);
 };
 
-export { state, getLoading, getPlaces, getPosition, getWeathers };
+const place = derived(state.places, $places => {
+    return $places[0];
+});
+
+const today = derived(state.weathers, $weathers => {
+    return $weathers[0];
+});
+
+export { state, place, today, getLoading, getPlaces, getPosition, getWeathers };

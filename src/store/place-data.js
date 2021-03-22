@@ -14,11 +14,21 @@ const doFill = (data) => {
 }
 
 async function fetchPlaces(url) {
-  const places = await httpGet(url)
-    .then(json => doFill(json))
-    .catch(error => handleError(error))
-  await displayWeathersInfo(places[0]);
-  store.getPlaces(places);
+  try {
+    store.getLoading(true);
+    const places = await httpGet(url)
+      .then(json => doFill(json))
+      .catch(error => handleError(error));
+    if (!Array.isArray(places) || places.length === 0) {
+      throw new Error('invalid parameter');
+    }
+    await displayWeathersInfo(places[0]);
+    store.getPlaces(places);
+  } catch (error) {
+    handleError(error);
+  } finally {
+    store.getLoading(false);
+  }
 }
 
 async function displayPlaceByQuery(query) {

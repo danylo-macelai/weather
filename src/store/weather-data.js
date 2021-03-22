@@ -25,12 +25,10 @@ const doFill = (data) => {
 }
 
 async function displayWeathersInfo(place) {
-  store.getLoading(true);
   const weathers = await httpGet(`${API_URL}/location/${place.woeid}`)
     .then(json => doFill(json))
     .catch(error => handleError(error))
   store.getWeathers(weathers);
-  store.getLoading(false);
 }
 
 export { displayWeathersInfo };

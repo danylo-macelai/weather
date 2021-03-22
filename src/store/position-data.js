@@ -5,7 +5,6 @@ import { displayPlaceByPosition } from './place-data'
 const doLoadData = async (position) => {
   await displayPlaceByPosition(position);
   store.getPosition(position);
-  store.getLoading(false);
 }
 
 const successCallback = async (pos) => {

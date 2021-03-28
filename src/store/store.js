@@ -1,33 +1,44 @@
 import { writable, derived } from "svelte/store";
 
 const state = {
-    loading: writable(false),
-    places: writable([{}]),
-    position: writable({}),
-    weathers: writable([{}]),
+    loading: writable(true),
+    position: writable({
+        coords: {
+            latitude: 60.165249,
+            longitude: 24.936056,
+        },
+        confirm: false,
+        disabled: false,
+    }),
+    place: writable({}),
+    places: writable([]),
+    today: writable({}),
+    weathers: writable([]),
 };
 
 const getLoading = value => {
     state.loading.update(old => value);
-};
-const getPlaces = place => {
-    state.places.update(old => place);
 };
 
 const getPosition = position => {
     state.position.update(old => position);
 };
 
+const getPlace = place => {
+    state.place.update(old => place);
+};
+
+const getPlaces = places => {
+    state.places.update(old => places);
+};
+
+
+const getToday = today => {
+    state.today.update(old => today);
+};
+
 const getWeathers = weathers => {
     state.weathers.update(old => weathers);
 };
 
-const place = derived(state.places, $places => {
-    return $places[0];
-});
-
-const today = derived(state.weathers, $weathers => {
-    return $weathers[0];
-});
-
-export { state, place, today, getLoading, getPlaces, getPosition, getWeathers };
+export { state, getLoading, getPosition, getPlace, getPlaces, getToday, getWeathers };

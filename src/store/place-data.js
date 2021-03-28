@@ -1,29 +1,36 @@
 import * as store from "./store"
-import { displayWeathersInfo } from "./weather-data"
-import { httpGet, handleError } from "./http-utils"
+import { findWeathers } from "./weather-data"
+import { get, handleError } from "./http-utils"
 import API_URL from './config';
 
-const doFill = (data) => {
-  let places = data.map(place => {
-    return {
-      title: place.title,
-      woeid: place.woeid,
-    };
-  });
-  return places;
+const resolution = (data) => {
+  return data;
 }
 
-async function fetchPlaces(url) {
+const getPlaces = async (url) => {
+  const places = await get(url)
+    .then(json => resolution(json))
+    .catch(error => handleError(error));
+  if (!Array.isArray(places) || places.length === 0) {
+    throw new Error('invalid parameter');
+  }
+  store.getPlaces(places);
+  return places[0];
+}
+
+const getWeathers = async (woeid) => {
+  const weathers = await findWeathers(woeid);
+  store.getToday(weathers.shift());
+  store.getWeathers(weathers);
+}
+
+async function findPlaceByPosition(position) {
   try {
     store.getLoading(true);
-    const places = await httpGet(url)
-      .then(json => doFill(json))
-      .catch(error => handleError(error));
-    if (!Array.isArray(places) || places.length === 0) {
-      throw new Error('invalid parameter');
-    }
-    await displayWeathersInfo(places[0]);
-    store.getPlaces(places);
+    const url = `${API_URL}/location/search/?lattlong=${position.coords.latitude},${position.coords.longitude}`;
+    const place = await getPlaces(url);
+    await getWeathers(place.woeid);
+    store.getPlace(place);
   } catch (error) {
     handleError(error);
   } finally {
@@ -31,12 +38,27 @@ async function fetchPlaces(url) {
   }
 }
 
-async function displayPlaceByQuery(query) {
-  await fetchPlaces(`${API_URL}/location/search/?query=${query}`)
+async function findPlaceByQuery(query) {
+  try {
+    store.getLoading(true);
+    await getPlaces(`${API_URL}/location/search/?query=${query}`);
+  } catch (error) {
+    handleError(error);
+  } finally {
+    store.getLoading(false);
+  }
 }
 
-async function displayPlaceByPosition(position) {
-  await fetchPlaces(`${API_URL}/location/search/?lattlong=${position.latitude},${position.longitude}`)
+async function findPlaceByWoeid(place) {
+  try {
+    store.getPlace(place);
+    store.getLoading(true);
+    await getWeathers(place.woeid);
+  } catch (error) {
+    handleError(error);
+  } finally {
+    store.getLoading(false);
+  }
 }
 
-export { displayPlaceByQuery, displayPlaceByPosition };
+export { findPlaceByQuery, findPlaceByPosition, findPlaceByWoeid };

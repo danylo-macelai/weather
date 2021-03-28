@@ -1,13 +1,15 @@
 <script>
     import {
         Buttons,
-        StateImage,
-        Temperature,
         Date,
-        StateName,
         Place,
+        StateImage,
+        StateName,
+        Temperature,
     } from "../components";
-    import { place, today } from "../store";
+    import { state } from "../store";
+
+    const { place, today } = state;
 
     export let sidebar = false;
 </script>
@@ -18,10 +20,10 @@
         : 'relative'}; --position-after: {sidebar ? 'inherit' : 'absolute'}"
 >
     <Buttons bind:open={sidebar} />
-    <StateImage image={$today.weatherStateAbbr} />
-    <Temperature temperature={$today.theTemp} />
-    <StateName name={$today.weatherStateName} />
-    <Date text="Today" date={$today.applicableDate} />
+    <StateImage image={$today.weather_state_abbr} />
+    <Temperature temperature={$today.the_temp} />
+    <StateName name={$today.weather_state_name} />
+    <Date text="Today" date={$today.applicable_date} />
     <Place place={$place} />
 </aside>
 

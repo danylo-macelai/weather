@@ -1,13 +1,14 @@
 <script>
-    import { state, displayPositionInfo } from "../store";
+    import { state, getCurrentPosition } from "../store";
 
     const { position } = state;
 </script>
 
 <button
     class="position"
-    on:click={displayPositionInfo}
-    title={`latitude: ${$position.latitude}, longitude: ${$position.longitude}`}
+    disabled={$position.disabled}
+    on:click={() => getCurrentPosition($position)}
+    title={`latitude: ${$position.coords.latitude}, longitude: ${$position.coords.longitude}`}
 >
     <span class="material-icons"> my_location </span>
 </button>
@@ -18,7 +19,7 @@
         height: 40px;
         border-radius: 50%;
     }
-    
+
     .material-icons {
         font-size: 22px;
     }

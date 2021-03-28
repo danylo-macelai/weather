@@ -2,20 +2,19 @@
 	import { onMount } from "svelte";
 	import { Preloader } from "../components";
 	import { Today, Sidebar } from "./";
-	import { state, displayPositionInfo } from "../store";
+	import { state, getCurrentPosition } from "../store";
 
 	let open = false;
 	const { loading, position } = state;
-	$: render = $position.latitude !== undefined;
 
-	onMount(() => displayPositionInfo());
+	onMount(() => getCurrentPosition($position));
 </script>
 
 <main class="home__content">
 	{#if $loading}
 		<Preloader />
 	{/if}
-	{#if render}
+	{#if $position.confirm}
 		<Sidebar bind:open />
 		<Today bind:sidebar={open} />
 		<article>

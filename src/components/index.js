@@ -1,19 +1,24 @@
 import Buttons from "./Buttons.svelte";
-import Position from "./Position.svelte";
-import StateImage from "./StateImage.svelte";
-import Temperature from "./Temperature.svelte";
 import Date from "./Date.svelte";
-import StateName from "./StateName.svelte";
 import Place from "./Place.svelte";
+import Places from "./Places.svelte";
+import Position from "./Position.svelte";
 import Preloader from "./Preloader.svelte";
+import Query from "./Query.svelte";
+import StateImage from "./StateImage.svelte";
+import StateName from "./StateName.svelte";
+import Temperature from "./Temperature.svelte";
 
 export {
     Buttons,
-    Position,
-    StateImage,
-    Temperature,
     Date,
-    StateName,
     Place,
+    Places,
+    Position,
     Preloader,
+    Query,
+    StateImage,
+    StateName,
+    Temperature,
+
 };

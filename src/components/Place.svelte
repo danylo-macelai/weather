@@ -20,7 +20,6 @@
         line-height: 21px;
         color: #88869d;
     }
-
     
     @media screen and (max-width: 1024px) {
         .place {

@@ -36,7 +36,7 @@
         position: var(--position);
         background-color: #1e213a;
     }
-
+    
     aside::after {
         content: "";
         position: var(--position-after);
@@ -47,12 +47,12 @@
         background-image: url("../assets/images/Cloud-background.png");
         background-repeat: no-repeat;
         background-position: top;
-        opacity: 0.2;
+        opacity: 0.2;     
     }
 
     @media screen and (max-width: 1024px) {
         aside {
-            height: 810px;
+            height: 720px;
             width: 100%;
         }
 

@@ -18,7 +18,7 @@
 
 <style>
 	.buttons {
-		justify-content: end;
+		justify-content: flex-end;
 	}
 
 	.buttons button {
@@ -48,7 +48,7 @@
 		position: absolute;
 		background-color: #1e213a;
 		left: -100%;
-		transition: left 0.2s ease-in-out;
+		transition: left 0.6s ease-in-out;
 		height: 100%;
 	}
 

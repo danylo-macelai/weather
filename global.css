@@ -40,3 +40,7 @@ body {
 	color: #E7E7EB;
 	vertical-align: middle;
 }
+
+.buttons button:disabled span { 
+	color: #110e3c !important;
+}

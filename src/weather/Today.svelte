@@ -9,7 +9,7 @@
     } from "../components";
     import { state } from "../store";
 
-    const { place, today, measurement } = state;
+    const { place, today } = state;
 
     export let sidebar = false;
 </script>
@@ -21,7 +21,7 @@
 >
     <Buttons bind:open={sidebar} />
     <StateImage image={$today.weather_state_abbr} />
-    <Temperature temperature={$today.the_temp} measurement={$measurement} />
+    <Temperature temperature={$today.the_temp} />
     <StateName name={$today.weather_state_name} />
     <Date text="Today" date={$today.applicable_date} />
     <Place place={$place} />
@@ -36,7 +36,7 @@
         position: var(--position);
         background-color: #1e213a;
     }
-    
+
     aside::after {
         content: "";
         position: var(--position-after);
@@ -47,7 +47,7 @@
         background-image: url("../assets/images/Cloud-background.png");
         background-repeat: no-repeat;
         background-position: top;
-        opacity: 0.2;     
+        opacity: 0.2;
     }
 
     @media screen and (max-width: 1024px) {

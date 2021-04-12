@@ -1,5 +1,6 @@
 import Buttons from "./Buttons.svelte";
 import CircleButton from "./CircleButton.svelte";
+import Day from "./Day.svelte"
 import Date from "./Date.svelte";
 import Measurement from "./Measurement.svelte";
 import Place from "./Place.svelte";
@@ -13,6 +14,7 @@ import Temperature from "./Temperature.svelte";
 export {
     Buttons,
     CircleButton,
+    Day,
     Date,
     Measurement,
     Place,

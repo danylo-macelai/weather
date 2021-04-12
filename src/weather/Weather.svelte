@@ -1,11 +1,11 @@
 <script>
 	import { onMount } from "svelte";
-	import { Day, Measurement, Preloader } from "../components";
+	import { Measurement, NextDays, Preloader } from "../components";
 	import { Today, Sidebar } from "./";
 	import { state, getCurrentPosition } from "../store";
 
 	let open = false;
-	const { loading, position, weathers } = state;
+	const { loading, position } = state;
 
 	onMount(() => getCurrentPosition($position));
 </script>
@@ -19,8 +19,7 @@
 		<Today bind:sidebar={open} />
 		<article>
 			<Measurement />
-
-			<Day day={$weathers[0]} />
+			<NextDays />
 		</article>
 	{/if}
 </main>

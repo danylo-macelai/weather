@@ -3,6 +3,7 @@ import CircleButton from "./CircleButton.svelte";
 import Day from "./Day.svelte"
 import Date from "./Date.svelte";
 import Measurement from "./Measurement.svelte";
+import NextDays from "./NextDays.svelte";
 import Place from "./Place.svelte";
 import Places from "./Places.svelte";
 import Preloader from "./Preloader.svelte";
@@ -17,6 +18,7 @@ export {
     Day,
     Date,
     Measurement,
+    NextDays,
     Place,
     Places,
     Preloader,

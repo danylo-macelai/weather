@@ -1,10 +1,15 @@
 <script>
-    import { StateImage, Temperature } from "./";
+    import { Date, StateImage, Temperature } from "./";
     export let day;
+    export let tomorrow = true;
 </script>
 
 <div class="day">
-    <span class="title">Tomorrow</span>
+    {#if tomorrow}
+        <Date text="Tomorrow" size="small" />
+    {:else}
+        <Date date={day.applicable_date} size="small" />
+    {/if}
     <StateImage image={day.weather_state_abbr} size="small" />
     <div class="temperature">
         <Temperature temperature={day.max_temp} size="small" />
@@ -23,20 +28,8 @@
         align-items: center;
     }
 
-    .title {
-        width: 76px;
-        height: 30px;
-        font-family: Raleway;
-        font-style: normal;
-        font-weight: 500;
-        font-size: 16px;
-        line-height: 19px;
-        text-align: center;
-        color: #e7e7eb;
-    }
-
     .temperature {
-        height: 30px; 
+        height: 30px;
         display: flex;
         justify-content: space-around;
         width: 100%;

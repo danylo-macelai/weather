@@ -14,6 +14,8 @@ const successCallback = async (position) => {
     };
     await findPlaceByPosition(current);
     store.getPosition(current);
+  } else {
+    store.getLoading(false);
   }
 }
 
@@ -27,6 +29,8 @@ const errorCallback = async (err) => {
     };
     await findPlaceByPosition(current);
     store.getPosition(current);
+  } else {
+    store.getLoading(false);
   }
 }
 

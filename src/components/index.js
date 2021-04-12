@@ -1,8 +1,9 @@
 import Buttons from "./Buttons.svelte";
+import CircleButton from "./CircleButton.svelte";
 import Date from "./Date.svelte";
+import Measurement from "./Measurement.svelte";
 import Place from "./Place.svelte";
 import Places from "./Places.svelte";
-import Position from "./Position.svelte";
 import Preloader from "./Preloader.svelte";
 import Query from "./Query.svelte";
 import StateImage from "./StateImage.svelte";
@@ -11,14 +12,14 @@ import Temperature from "./Temperature.svelte";
 
 export {
     Buttons,
+    CircleButton,
     Date,
+    Measurement,
     Place,
     Places,
-    Position,
     Preloader,
     Query,
     StateImage,
     StateName,
     Temperature,
-
 };

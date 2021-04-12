@@ -1,6 +1,6 @@
 <script>
 	import { onMount } from "svelte";
-	import { Preloader } from "../components";
+	import { Measurement, Preloader } from "../components";
 	import { Today, Sidebar } from "./";
 	import { state, getCurrentPosition } from "../store";
 
@@ -18,7 +18,7 @@
 		<Sidebar bind:open />
 		<Today bind:sidebar={open} />
 		<article>
-			// Content Heading
+			<Measurement />
 			<section>// Content Area</section>
 		</article>
 	{/if}
@@ -35,6 +35,7 @@
 		float: left;
 		flex: 1 1 auto;
 		background-color: #100e1d;
+		padding: 42px 154px;
 	}
 
 	@media screen and (max-width: 1024px) {
@@ -45,6 +46,7 @@
 		article {
 			height: 100%;
 			width: 100%;
+			padding: 8px;
 		}
 	}
 </style>

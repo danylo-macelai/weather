@@ -2,6 +2,7 @@ import { writable, derived } from "svelte/store";
 
 const state = {
     loading: writable(true),
+    measurement: writable("C"),
     position: writable({
         coords: {
             latitude: 60.165249,
@@ -20,6 +21,10 @@ const getLoading = value => {
     state.loading.update(old => value);
 };
 
+const getMeasurement = value => {
+    state.measurement.update(old => value);
+};
+
 const getPosition = position => {
     state.position.update(old => position);
 };
@@ -32,7 +37,6 @@ const getPlaces = places => {
     state.places.update(old => places);
 };
 
-
 const getToday = today => {
     state.today.update(old => today);
 };
@@ -41,4 +45,4 @@ const getWeathers = weathers => {
     state.weathers.update(old => weathers);
 };
 
-export { state, getLoading, getPosition, getPlace, getPlaces, getToday, getWeathers };
+export { state, getLoading, getMeasurement, getPosition, getPlace, getPlaces, getToday, getWeathers };

@@ -1,5 +1,8 @@
 <script>
-    import { Position } from "./";
+    import { state, getCurrentPosition } from "../store";
+    import { CircleButton } from "./";
+
+    const { position } = state;
     export let open = false;
 </script>
 
@@ -7,7 +10,12 @@
     <button class:open on:click={() => (open = !open)}>
         <span> Seach for places </span>
     </button>
-    <Position />
+    <CircleButton
+        disabled={$position.disabled}
+        on:click={() => getCurrentPosition($position)}
+        title={`latitude: ${$position.coords.latitude}, longitude: ${$position.coords.longitude}`}
+        icon="my_location"
+    />
 </div>
 
 <style>

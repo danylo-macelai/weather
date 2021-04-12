@@ -1,12 +1,12 @@
 <script>
     export let temperature;
-    export let measurement = "°C";
+    export let measurement;
 
-    $: temp = Math.round(temperature);
+    $: temp = Math.round(measurement === "F" ? (temperature  * 9) / 5 + 32 : temperature);
 </script>
 
 <p class="temperature">
-    {temp}<span class="measurement">{measurement}</span>
+    {temp}<span class="measurement">°{measurement}</span>
 </p>
 
 <style>

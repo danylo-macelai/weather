@@ -61,4 +61,15 @@ async function findPlaceByWoeid(place) {
   }
 }
 
-export { findPlaceByQuery, findPlaceByPosition, findPlaceByWoeid };
+function toggleMeasurement(measurement) {
+  try {
+    store.getLoading(true);
+    store.getMeasurement(measurement);
+  } catch (error) {
+    handleError(error);
+  } finally {
+    store.getLoading(false);
+  }
+}
+
+export { findPlaceByQuery, findPlaceByPosition, findPlaceByWoeid, toggleMeasurement };

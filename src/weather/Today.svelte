@@ -9,7 +9,7 @@
     } from "../components";
     import { state } from "../store";
 
-    const { place, today } = state;
+    const { place, today, measurement } = state;
 
     export let sidebar = false;
 </script>
@@ -21,7 +21,7 @@
 >
     <Buttons bind:open={sidebar} />
     <StateImage image={$today.weather_state_abbr} />
-    <Temperature temperature={$today.the_temp} />
+    <Temperature temperature={$today.the_temp} measurement={$measurement} />
     <StateName name={$today.weather_state_name} />
     <Date text="Today" date={$today.applicable_date} />
     <Place place={$place} />

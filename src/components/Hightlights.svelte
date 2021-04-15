@@ -4,7 +4,8 @@
 
     const { today } = state;
 
-    $: rotate = -Math.round($today.humidity);
+    $: rotate = Math.round($today.wind_direction);
+    $: humidity = Math.round($today.humidity);
 </script>
 
 <p>Today’s Hightlights</p>
@@ -20,15 +21,13 @@
         </div>
         <p class="direction">{$today.wind_direction_compass}</p>
     </Hightlight>
-    <Hightlight
-        title="Humidity"
-        value={Math.round($today.humidity)}
-        type="%"
-        height="204"
-    >
-        <div class="bar">
-            <div class="progressBar" />
-            <div />
+    <Hightlight title="Humidity" value={humidity} type="%" height="204">
+        <div class="progress-bar">
+            <div style="--progress: {humidity}%" />
+            <span class="zero">0</span>
+            <span class="fifty">50</span>
+            <span class="hundred">100</span>
+            <span class="percent">%</span>
         </div>
     </Hightlight>
     <Hightlight
@@ -54,10 +53,49 @@
         color: #e7e7eb;
     }
 
-    .bar div {
-        width: 100%;
-        height: 6px;
-        background: rgba(255, 255, 255, 0.05);
+    .progress-bar {
+        position: relative;
+        width: 80%;
+        height: 8px;
+        background: #e7e7eb;
+        border-radius: 80px;
+    }
+
+    .progress-bar span {
+        position: absolute;
+        font-family: Raleway;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 19px;
+        text-align: center;
+        color: #a09fb1;
+        top: -20px;
+    }
+
+    .progress-bar div {
+        position: absolute;
+        width: var(--progress);
+        height: 8px;
+        background: #ffec65;
+        border-radius: 80px;
+    }
+
+    .zero {
+        left: 0;
+    }
+
+    .fifty {
+        left: 50%;
+    }
+
+    .hundred {
+        right: 0;
+    }
+
+    .percent {
+        top: 10px !important;
+        right: 0;
     }
 
     .hightlights {

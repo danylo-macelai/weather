@@ -35,7 +35,7 @@
 
     @media screen and (max-width: 1024px) {
         .measurement {
-            padding: 2px 6px 0 0;
+            padding: 0;
         }
 
         .spacer {

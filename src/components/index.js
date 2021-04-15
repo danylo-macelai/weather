@@ -2,6 +2,8 @@ import Buttons from "./Buttons.svelte";
 import CircleButton from "./CircleButton.svelte";
 import Day from "./Day.svelte"
 import Date from "./Date.svelte";
+import Hightlights from "./Hightlights.svelte";
+import Hightlight from "./Hightlight.svelte";
 import Measurement from "./Measurement.svelte";
 import NextDays from "./NextDays.svelte";
 import Place from "./Place.svelte";
@@ -17,6 +19,8 @@ export {
     CircleButton,
     Day,
     Date,
+    Hightlights,
+    Hightlight,
     Measurement,
     NextDays,
     Place,

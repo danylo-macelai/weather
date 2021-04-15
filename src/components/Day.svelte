@@ -19,13 +19,15 @@
 
 <style>
     .day {
-        width: 100%;
         height: 177px;
         background: #1e213a;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
         align-items: center;
+        box-sizing: border-box;
+        width: calc(20% - 20px);
+        margin: 20px 0;
     }
 
     .temperature {
@@ -33,5 +35,12 @@
         display: flex;
         justify-content: space-around;
         width: 100%;
+    }
+
+    @media screen and (max-width: 1024px) {
+        .day {
+            width: calc(50% - 20px);
+            margin: 10px 10px;
+        }
     }
 </style>

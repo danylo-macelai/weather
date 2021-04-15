@@ -1,6 +1,11 @@
 <script>
 	import { onMount } from "svelte";
-	import { Measurement, NextDays, Preloader } from "../components";
+	import {
+		Hightlights,
+		Measurement,
+		NextDays,
+		Preloader,
+	} from "../components";
 	import { Today, Sidebar } from "./";
 	import { state, getCurrentPosition } from "../store";
 
@@ -20,6 +25,7 @@
 		<article>
 			<Measurement />
 			<NextDays />
+			<Hightlights />
 		</article>
 	{/if}
 </main>
@@ -45,8 +51,7 @@
 
 		article {
 			height: 100%;
-			width: 100%;
-			padding: 8px;
+			padding: 12px 20px;
 		}
 	}
 </style>

@@ -1,6 +1,7 @@
 <script>
 	import { onMount } from "svelte";
 	import {
+		Footer,
 		Hightlights,
 		Measurement,
 		NextDays,
@@ -26,6 +27,7 @@
 			<Measurement />
 			<NextDays />
 			<Hightlights />
+			<Footer />
 		</article>
 	{/if}
 </main>

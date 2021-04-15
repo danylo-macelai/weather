@@ -1,6 +1,7 @@
 import Buttons from "./Buttons.svelte";
 import CircleButton from "./CircleButton.svelte";
 import Day from "./Day.svelte"
+import Footer from "./Footer.svelte"
 import Date from "./Date.svelte";
 import Hightlights from "./Hightlights.svelte";
 import Hightlight from "./Hightlight.svelte";
@@ -18,6 +19,7 @@ export {
     Buttons,
     CircleButton,
     Day,
+    Footer,
     Date,
     Hightlights,
     Hightlight,

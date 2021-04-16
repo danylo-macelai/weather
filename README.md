@@ -1,105 +1,43 @@
-*Looking for a shareable component template? Go here --> [sveltejs/component-template](https://github.com/sveltejs/component-template)*
+<h1 align="center">{WEATHER}</h1>
 
----
+## Overview
 
-# svelte app
+<div align="center">
+    <img src="weather.gif">
+</div>
 
-This is a project template for [Svelte](https://svelte.dev) apps. It lives at https://github.com/sveltejs/template.
+## Demo
 
-To create a new project based on this template using [degit](https://github.com/Rich-Harris/degit):
+To access the current state of this demo, please visit the [GitHub Pages Preview](https://danylo-macelai.github.io/weather).
 
-```bash
-npx degit sveltejs/template svelte-app
-cd svelte-app
-```
+## User Story 
 
-*Note that you will need to have [Node.js](https://nodejs.org) installed.*
+The [</> devchallenges.io](https://devchallenges.io/challenges/mM1UIenRhK808W8qmLWv) was to build an application with [design UI Figma](https://www.figma.com/file/5X3Ao3gEqZPqqKctP7riDF/weather-app?node-id=0%3A1) to complete the user stories:
+ 
+- [x] I can see city weather as default, preferably my current location
+- [x] I can search for city
+- [x] I can see weather of today and the next 5 days
+- [x] I can see the date and location of the weather
+- [x] I can see according to image for each type of weather
+- [x] I can see the min and max degree each day
+- [x] I can see wind status and wind direction
+- [x] I can see humidity percentage
+- [x] I can see visibility indicator
+- [x] I can see air pressure number
+- [x] I can request my current location weather (optional)
+- [x] I can convert temperature in Celcius to Fahrenheit and vice versa (optional)
+ 
+## How To Use
 
-
-## Get started
-
-Install the dependencies...
-
-```bash
-cd svelte-app
-npm install
-```
-
-...then start [Rollup](https://rollupjs.org):
-
-```bash
-npm run dev
-```
-
-Navigate to [localhost:5000](http://localhost:5000). You should see your app running. Edit a component file in `src`, save it, and reload the page to see your changes.
-
-By default, the server will only respond to requests from localhost. To allow connections from other computers, edit the `sirv` commands in package.json to include the option `--host 0.0.0.0`.
-
-If you're using [Visual Studio Code](https://code.visualstudio.com/) we recommend installing the official extension [Svelte for VS Code](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode). If you are using other editors you may need to install a plugin in order to get syntax highlighting and intellisense.
-
-## Building and running in production mode
-
-To create an optimised version of the app:
+To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
 
 ```bash
-npm run build
-```
+# Clone this repository
+$ git clone https://github.com/danylo-macelai/weather.git
 
-You can run the newly built app with `npm run start`. This uses [sirv](https://github.com/lukeed/sirv), which is included in your package.json's `dependencies` so that the app will work when you deploy to platforms like [Heroku](https://heroku.com).
+# Install dependencies
+$ npm install
 
-
-## Single-page app mode
-
-By default, sirv will only respond to requests that match files in `public`. This is to maximise compatibility with static fileservers, allowing you to deploy your app anywhere.
-
-If you're building a single-page app (SPA) with multiple routes, sirv needs to be able to respond to requests for *any* path. You can make it so by editing the `"start"` command in package.json:
-
-```js
-"start": "sirv public --single"
-```
-
-## Using TypeScript
-
-This template comes with a script to set up a TypeScript development environment, you can run it immediately after cloning the template with:
-
-```bash
-node scripts/setupTypeScript.js
-```
-
-Or remove the script via:
-
-```bash
-rm scripts/setupTypeScript.js
-```
-
-## Deploying to the web
-
-### With [Vercel](https://vercel.com)
-
-Install `vercel` if you haven't already:
-
-```bash
-npm install -g vercel
-```
-
-Then, from within your project folder:
-
-```bash
-cd public
-vercel deploy --name my-project
-```
-
-### With [surge](https://surge.sh/)
-
-Install `surge` if you haven't already:
-
-```bash
-npm install -g surge
-```
-
-Then, from within your project folder:
-
-```bash
-npm run build
-surge public my-project.surge.sh
+# Run the app
+$ npm run dev
 ```

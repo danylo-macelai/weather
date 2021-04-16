@@ -44,3 +44,9 @@ body {
 .buttons button:disabled span { 
 	color: #110e3c !important;
 }
+
+@media screen and (max-width: 1024px) {
+	body {	
+		background-color: #100e1d; 
+	} 
+}
